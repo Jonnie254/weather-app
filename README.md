@@ -135,16 +135,10 @@ php artisan serve
 ---
 
 ## Screenshots
-
->![alt text](<Screenshot from 2025-05-14 17-41-31.png>)
-
----
-
-##  License
-
-This project is open-sourced for demonstration and interview purposes only.
+![alt text](<folders/Screenshot from 2025-05-14 17-41-31.png>)
 
 ---
+
 
 ##  Author
 
