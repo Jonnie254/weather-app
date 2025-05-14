@@ -29,17 +29,14 @@ const Home: React.FC = () => {
   };
 
   useEffect(() => {
-    console.log(`useEffect triggered with city: ${city} and unit: ${unit}`); // Log when the component mounts or updates
     fetchWeather(city, unit); 
   }, [unit, city]);
-
   const handleUnitChange = (newUnit: 'metric' | 'imperial') => {
-    console.log("Handling unit change:", newUnit); // Log unit change
     setUnit(newUnit);
   };
+  
 
   const handleCityChange = (newCity: string) => {
-    console.log("Handling city change:", newCity); // Log city change
     setCity(newCity);
     fetchWeather(newCity, unit);
   };

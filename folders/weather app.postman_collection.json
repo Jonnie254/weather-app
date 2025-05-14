@@ -1,0 +1,20 @@
+{
+	"info": {
+		"_postman_id": "4b32e860-cdc2-4a41-b1ef-6ac5e12074c8",
+		"name": "weather app",
+		"description": "This is a weather app endpoints to test the backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30512201"
+	},
+	"item": [
+		{
+			"name": "get weather update for a city.",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"description": "This endpoint will get the the weather values."
+			},
+			"response": []
+		}
+	]
+}
