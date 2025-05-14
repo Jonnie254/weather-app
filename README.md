@@ -86,6 +86,10 @@ composer install
 cp .env.example .env
 php artisan key:generate
 
+Note: This API is **stateless** and doesn't require sessions. If you see session-related errors,
+make sure your `.env` has `SESSION_DRIVER=array` and you're not using `StartSession` middleware in `api` routes.
+
+
 # Set your OpenWeatherMap API key in .env
 OPENWEATHERMAP_API_KEY=your_api_key_here
 
