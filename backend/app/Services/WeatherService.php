@@ -54,32 +54,37 @@ class WeatherService
         $daily = [];
         foreach ($forecastData['list'] as $entry) {
             $date = substr($entry['dt_txt'], 0, 10);
-            $carbonDate = Carbon::parse($date)->format('j M'); 
-            if (!isset($daily[$carbonDate])) {
+            $time = substr($entry['dt_txt'], 11, 5);
+    
+            if ($time === '12:00') {
+                $carbonDate = Carbon::parse($date)->format('j M Y');
+        
                 $daily[$carbonDate] = [
                     'temperature' => $entry['main']['temp'],
                     'description' => $entry['weather'][0]['description'],
                     'humidity' => $entry['main']['humidity'],
                     'wind_speed' => $entry['wind']['speed'],
+                    'icon' => $entry['weather'][0]['icon'],
                 ];
             }
         }
         
+
         // Step 4: Remove today, keep next 3 days
-        $today = date('Y-m-d');
+        $today = Carbon::today()->format('j M Y');
         unset($daily[$today]);
         $forecast = array_slice($daily, 0, 3);
 
-        // Step 5: Combine everything
         return [
             'city' => $current['name'],
-            'date' => date('Y-m-d'),
+            'date' => Carbon::now()->format('j M Y'),
             'units' => $units,
             'weather' => [
                 'temperature' => $current['main']['temp'],
                 'description' => $current['weather'][0]['description'],
                 'humidity' => $current['main']['humidity'],
                 'wind_speed' => $current['wind']['speed'],
+                'icon' => $current['weather'][0]['icon'],
             ],
             'forecast' => $forecast
         ];
